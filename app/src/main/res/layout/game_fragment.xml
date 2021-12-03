@@ -60,19 +60,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="140dp"
 
-            android:text="@string/app_name2"
+            android:text="@{viewModel.word}"
             android:textAppearance="?attr/textAppearanceHeadline3"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Lykkehjulet"/>
 
         <TextView
             android:id="@+id/category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="@string/category"
+            android:text="@{@string/category(viewModel.category)}"
             android:textAppearance="?attr/textAppearanceHeadline5"
 
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,6 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/default_margin"
             android:hint="@string/guess"
+
             app:errorIconDrawable="@drawable/ic_error"
             app:helperTextTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
 
@@ -98,8 +100,8 @@
                 android:id="@+id/text_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="textPersonName|textNoSuggestions"
-                android:maxLines="1" />
+                android:maxLength="1"
+                android:inputType="text"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,12 +113,13 @@
             android:layout_marginTop="60dp"
 
             android:text="@string/guess_word"
+            android:onClick="@{() -> gameFragment.guessLetter()"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_field" />
 
         <Button
-            android:id="@+id/quit_game_button"
+            android:id="@+id/replay_button"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
