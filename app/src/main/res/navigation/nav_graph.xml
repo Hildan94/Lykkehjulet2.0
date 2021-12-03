@@ -9,15 +9,16 @@
         android:id="@+id/startFragment"
         android:name="com.example.lykkehjulet20.ui.main.StartFragment"
         android:label="start_fragment"
-        tools:layout="@layout/start_fragment" >
+        tools:layout="@layout/start_fragment">
         <action
             android:id="@+id/action_startFragment_to_GameFragment"
-            app:destination="@id/GameFragment" />
+            app:destination="@id/gameFragment" />
     </fragment>
     <fragment
-        android:id="@+id/GameFragment"
+        android:id="@+id/gameFragment"
         android:name="com.example.lykkehjulet20.ui.main.GameFragment"
-        android:label="GameFragment" >
+        android:label="game_Fragment"
+        tools:layout="@layout/game_fragment">
         <action
             android:id="@+id/action_GameFragment_to_winFragment"
             app:destination="@id/winFragment" />
@@ -31,7 +32,8 @@
     <fragment
         android:id="@+id/loseFragment"
         android:name="com.example.lykkehjulet20.ui.main.LoseFragment"
-        android:label="LoseFragment" >
+        android:label="lose_fragment"
+        tools:layout="@layout/lose_fragment">
         <action
             android:id="@+id/action_loseFragment_to_startFragment"
             app:destination="@id/startFragment" />
@@ -39,7 +41,8 @@
     <fragment
         android:id="@+id/winFragment"
         android:name="com.example.lykkehjulet20.ui.main.WinFragment"
-        android:label="WinFragment" >
+        android:label="win_fragment"
+        tools:layout="@layout/win_fragment">
         <action
             android:id="@+id/action_winFragment_to_startFragment"
             app:destination="@id/startFragment" />
