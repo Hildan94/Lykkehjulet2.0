@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:text="@string/replay_game"
 
-        android:onClick="@{() -> winFragment.restartGame()}"
+        android:onClick="@{() -> winFragment.replayGame()}"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/high_score_list"
