@@ -13,4 +13,5 @@
     <string name="win_game">Du har vundet spillet !</string>
     <string name="lose_game">Du har desværre tabt spillet !</string>
 
+    <string name="guess">Indtast din bogstav</string>
 </resources>
