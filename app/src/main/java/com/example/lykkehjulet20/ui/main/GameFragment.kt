@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.lykkehjulet20.R
 
-class GameFragment : Fragment() {
+class game : Fragment() {
 
     companion object {
-        fun newInstance() = StartFragment()
+        fun newInstance() = game()
     }
 
     private lateinit var viewModel: MainViewModel
@@ -19,8 +19,8 @@ class GameFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.start_fragment, container, false)
+    ): View? {
+        return inflater.inflate(R.layout.game_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
