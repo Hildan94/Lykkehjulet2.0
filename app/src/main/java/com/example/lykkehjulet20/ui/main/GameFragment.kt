@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.lykkehjulet20.R
 
-class game : Fragment() {
+class GameFragment : Fragment() {
 
     companion object {
-        fun newInstance() = game()
+        fun newInstance() = GameFragment()
     }
 
     private lateinit var viewModel: MainViewModel
