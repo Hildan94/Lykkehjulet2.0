@@ -1,32 +1,56 @@
 package com.example.lykkehjulet20.ui.main
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import com.example.lykkehjulet20.databinding.GameFragmentBinding
+import com.example.lykkehjulet20.model.MainViewModel
+import androidx.navigation.fragment.findNavController
 import com.example.lykkehjulet20.R
 
 class GameFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = GameFragment()
-    }
+    private var _binding: GameFragmentBinding? = null
+    private val binding get() = _binding!!
 
-    private lateinit var viewModel: MainViewModel
+    private val sharedViewModel: MainViewModel by activityViewModels()
+
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.game_fragment, container, false)
+        _binding = GameFragmentBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+        return root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.apply {
+
+        }
+        binding.guessButton.setOnClickListener { guessLetter() }
+
+        binding.quitGameButton.setOnClickListener { quitGame() }
     }
 
+    private fun quitGame() {
+        sharedViewModel.restartGame()
+        findNavController().navigate(R.id.action_GameFragment_to_startFragment)
+    }
+
+    private fun guessLetter() {
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
