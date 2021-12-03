@@ -8,6 +8,9 @@
     <string name="category">Kategorien er : %s</string>
     <string name="quit">Stop spillet</string>
     <string name="guess_word">Gæt et bogstav</string>
+    <string name="replay_game">Start spillet igen</string>
+
+    <string name="win_game">Du har vundet spillet !</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
