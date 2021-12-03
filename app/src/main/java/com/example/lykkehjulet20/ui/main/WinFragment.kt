@@ -11,7 +11,7 @@ import com.example.lykkehjulet20.R
 class WinFragment : Fragment() {
 
     companion object {
-        fun newInstance() = StartFragment()
+        fun newInstance() = WinFragment()
     }
 
     private lateinit var viewModel: MainViewModel
