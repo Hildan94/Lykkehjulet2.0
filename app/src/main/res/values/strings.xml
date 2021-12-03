@@ -6,7 +6,6 @@
     <string name="life_count">Liv : %s</string>
     <string name="score_counter">Score : %s</string>
     <string name="category">Kategorien er : %s</string>
-    <string name="quit">Stop spillet</string>
     <string name="guess_word">Gæt et bogstav</string>
     <string name="replay_game">Start spillet igen</string>
 
@@ -14,4 +13,15 @@
     <string name="lose_game">Du har desværre tabt spillet !</string>
 
     <string name="guess">Indtast din bogstav</string>
+
+    <string name="highcores1">s164539 600 points</string>
+    <string name="highcores2">s164539 400 points</string>
+    <string name="highcores3">s164539 100 points</string>
+    <string name="highcores4">s164539 900 points</string>
+    <string name="highcores5">s164539 100 points</string>
+    <string name="highcores6">s164539 50 points</string>
+    <string name="highcores7">s164539 10 points</string>
+    <string name="highcores8">s164539 20 points</string>
+    <string name="highcores9">s164539 700 points</string>
+    <string name="highcores10">s164539 1000 points</string>
 </resources>
