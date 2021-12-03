@@ -1,54 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".ui.main.LoseFragment">
 
-    <TextView
-        android:id="@+id/lose_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/lose_game"
-        android:textAppearance="?attr/textAppearanceHeadline4"
-        android:layout_marginTop="30dp"
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.lykkehjulet20.model.MainViewModel" />
+        <variable
+            name="loseFragment"
+            type="com.example.lykkehjulet20.ui.main.LoseFragment" />
+    </data>
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintTop_toTopOf="parent">
-    </TextView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/high_score_list"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="match_parent">
 
-        app:layout_constraintTop_toBottomOf="@+id/lose_text"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_padding">
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+            <TextView
+                android:id="@+id/lose_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/lose_game"
+                android:textAppearance="?attr/textAppearanceHeadline4"
+                android:layout_marginTop="30dp"
 
-        android:scrollbars="vertical"
-        app:layoutManager="LinearLayoutManager"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
 
-    <Button
-        android:id="@+id/replay_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/replay_game"
-        android:onClick="@{() -> loseFragment.replayGame()}"
+                app:layout_constraintTop_toTopOf="parent">
+            </TextView>
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/high_score_list"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/high_score_list"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="10dp"
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@+id/lose_text"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                android:scrollbars="vertical"
+                app:layoutManager="LinearLayoutManager"/>
+
+            <Button
+                android:id="@+id/replay_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/replay_game"
+                android:onClick="@{() -> loseFragment.replayGame()}"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/high_score_list"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

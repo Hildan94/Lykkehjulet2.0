@@ -24,19 +24,35 @@ class WinFragment : Fragment() {
     private val sharedViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.win_fragment, container, false)
+        _binding = WinFragmentBinding.inflate(inflater, container, false)
+       val root: View = binding.root
+        return root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            viewModel  = sharedViewModel
+            winFragment = this@WinFragment
+        }
+    }
+
+
 
     fun replayGame(){
     sharedViewModel.restartGame()
-
     findNavController().navigate(R.id.action_winFragment_to_startFragment)
     }
 
 
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

@@ -11,11 +11,11 @@ import androidx.navigation.fragment.findNavController
 import com.example.lykkehjulet20.R
 import com.example.lykkehjulet20.databinding.LoseFragmentBinding
 import com.example.lykkehjulet20.databinding.StartFragmentBinding
+import com.example.lykkehjulet20.databinding.WinFragmentBinding
 import com.example.lykkehjulet20.model.MainViewModel
 
 class LoseFragment : Fragment() {
 
-    private lateinit var viewModel: MainViewModel
 
     private var _binding: LoseFragmentBinding? = null
     private val binding get() = _binding!!
@@ -24,16 +24,28 @@ class LoseFragment : Fragment() {
     private val sharedViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.lose_fragment, container, false)
+        _binding = LoseFragmentBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+        return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            viewModel  = sharedViewModel
+            loseFragment = this@LoseFragment
+        }
     }
 
     fun replayGame(){
         sharedViewModel.restartGame()
 
-        findNavController().navigate(R.id.action_winFragment_to_startFragment)
+        findNavController().navigate(R.id.action_loseFragment_to_startFragment)
     }
 
 
