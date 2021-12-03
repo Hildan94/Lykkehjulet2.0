@@ -26,7 +26,6 @@ class StartFragment : Fragment() {
         val root: View = binding.root
         // Navigate to entree menu
         binding.startbutton.setOnClickListener {
-            // TODO: navigate to the EntreeMenuFragment
             findNavController().navigate(R.id.action_startFragment_to_GameFragment)
         }
         return root
