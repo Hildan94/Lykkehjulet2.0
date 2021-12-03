@@ -30,7 +30,7 @@ class LoseFragment : Fragment() {
         return inflater.inflate(R.layout.lose_fragment, container, false)
     }
 
-    fun restartGame(){
+    fun replayGame(){
         sharedViewModel.restartGame()
 
         findNavController().navigate(R.id.action_winFragment_to_startFragment)
