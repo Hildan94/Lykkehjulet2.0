@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Primary colours -->
+    <color name="light_yellow">#ffffbf</color>
+    <color name="salmon_orange">#ff8a80</color>
+    <color name="dark_salmon">#c85a54</color>
+
+    <!-- Secondary colours-->
+    <color name="light_green">#c5e1a5</color>
+    <color name="yellow">#ffff8d</color>
+
 </resources>
