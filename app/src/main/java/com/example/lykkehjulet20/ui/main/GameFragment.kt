@@ -33,19 +33,18 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = sharedViewModel
+            gameFragment = this@GameFragment
         }
-        binding.guessButton.setOnClickListener { guessLetter() }
-
-        binding.quitGameButton.setOnClickListener { quitGame() }
     }
 
-    private fun quitGame() {
+    fun replayGame() {
         sharedViewModel.restartGame()
         findNavController().navigate(R.id.action_GameFragment_to_startFragment)
     }
 
-    private fun guessLetter() {
+    fun guessLetter() {
 
     }
 
