@@ -7,7 +7,7 @@ val categories: List<String> =
     listOf(
         "Dyr",
         "Mad og drikke",
-        "Blomster",
+        "Plante",
         "Farver"
     )
 
@@ -22,7 +22,7 @@ val Dyr: List<String> =
 val MadOgDrikke: List<String> =
     listOf(
         "Banan",
-        "Risengrød",
+        "Kartoffel",
         "Ris",
         "Suppe",
         "Kat",
@@ -30,21 +30,20 @@ val MadOgDrikke: List<String> =
         "Kaffe"
     )
 
-val Blomster: List<String> =
+val Plante: List<String> =
     listOf(
         "Rose",
         "Lilje",
         "Solsikke",
         "Bellis",
-        "Vintergæk"
+        "Svamp"
     )
 
 val Farver: List<String> =
     listOf(
-        "Blå",
         "Gul",
         "Orange",
-        "Lyse blå",
-        "Rød"
+        "lysegul",
+        "lilla"
     )
 
