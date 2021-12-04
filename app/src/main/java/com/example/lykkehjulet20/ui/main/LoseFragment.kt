@@ -39,12 +39,13 @@ class LoseFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             viewModel  = sharedViewModel
             loseFragment = this@LoseFragment
+
+            replayButton.setOnClickListener{replayGame()}
         }
     }
 
     fun replayGame(){
         sharedViewModel.restartGame()
-
         findNavController().navigate(R.id.action_loseFragment_to_startFragment)
     }
 
