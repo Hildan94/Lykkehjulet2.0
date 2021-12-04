@@ -122,7 +122,7 @@ class MainViewModel : ViewModel() {
         _word.value = ""
         _category.value =""
 
-        savedWord = ""
+        TODO("check is there are more attributes that should be reset")
     }
 
 
