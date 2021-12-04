@@ -24,7 +24,8 @@ class StartFragment : Fragment() {
     ): View {
         _binding = StartFragmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        // Navigate to entree menu
+
+        //NAvigerer til start interfacet
         binding.startbutton.setOnClickListener {
             findNavController().navigate(R.id.action_startFragment_to_GameFragment)
         }
