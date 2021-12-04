@@ -50,7 +50,16 @@ class GameFragment : Fragment() {
         val playerWord = binding.textInputEditText.text.toString()[0]
 
         //uses the function guessletter from the sharedViewModel
-        sharedViewModel.guessLetter(playerWord)
+        println(sharedViewModel.guessLetter(playerWord))
+        if (sharedViewModel.guessLetter(playerWord) == false)
+        {
+            println("got into error")
+            setErrorTextField(true)
+        } else {
+            println("no error will be printed")
+            setErrorTextField(false)
+        }
+
 
         //If the word is guessed the player should win
         if(sharedViewModel.isWordGuessed()) {
@@ -82,6 +91,18 @@ class GameFragment : Fragment() {
     fun replayGame() {
         sharedViewModel.restartGame()
         findNavController().navigate(R.id.action_GameFragment_to_startFragment)
+    }
+
+    private fun setErrorTextField(error: Boolean) {
+        if (error) {
+            binding.textField.isErrorEnabled = true
+            binding.textField.error = getString(R.string.wrong_gues)
+            println("error detected")
+        } else {
+            binding.textField.isErrorEnabled = false
+            binding.textInputEditText.text = null
+            println("error failed")
+        }
     }
 
 
