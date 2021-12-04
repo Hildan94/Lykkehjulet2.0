@@ -33,6 +33,7 @@ class MainViewModel : ViewModel() {
 
     //attributes to be used for getting a category and making
     //the chosen word hidden
+    private var categoryInt = categories
     private lateinit var categoryList: List<String>
     private lateinit var categoryChosenList: String
     private lateinit var currentWord: String
@@ -47,13 +48,13 @@ class MainViewModel : ViewModel() {
     Get a category from the words list
      */
     private fun getCategory() {
-    val category = categories.random()
+        val category = categoryInt.random()
         _category.value = category
 
         when(category){
             "Dyr" -> categoryList = Dyr
             "MadOgDrikke" -> categoryList = MadOgDrikke
-            "Blomster" -> categoryList = Blomster
+            "Plante" -> categoryList = Plante
             "Farver" -> categoryList = Farver
         }
         categoryChosenList = category
@@ -83,11 +84,17 @@ class MainViewModel : ViewModel() {
     Function used for when the player makes a guess
      */
     fun guessLetter(singleLetter: Char ): Boolean{
-        for (i in savedWord.indices) {
-            if (savedWord[i].lowercase() == singleLetter.lowercase()){
-                savedWord = savedWord.replaceRange(i, i+1, singleLetter.toString())
-                return true
+        var letterPresent: Boolean = false
+        for (i in currentWord.indices) {
+            if (currentWord[i].lowercase() == singleLetter.lowercase()){
+                savedWord = savedWord.replaceRange(i, i + 1, singleLetter.toString())
+                _word.value = savedWord
             }
+            letterPresent = true
+        }
+        if (letterPresent)
+        {
+            return true
         }
         decreaseLife()
         return false
@@ -98,10 +105,13 @@ class MainViewModel : ViewModel() {
      */
     fun isWordGuessed(): Boolean {
         for (i in savedWord.indices) {
+            println("check if won")
             if (savedWord[i].lowercase() == "-") {
+                println("the check failed")
                 return false
             }
         }
+        println("got here and should win")
         return true
     }
 
