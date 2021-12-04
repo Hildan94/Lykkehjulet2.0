@@ -55,8 +55,7 @@ class GameFragment : Fragment() {
         //If the word is guessed the player should win
         if(sharedViewModel.isWordGuessed()) {
             win()
-        }
-        else
+        } else
             //check if the player has any lives left
             if(sharedViewModel.lives.value!! <= 0) {
                 lose()
@@ -67,18 +66,14 @@ class GameFragment : Fragment() {
     navigates the player to the win screen
      */
     fun win() {
-        binding.guessButton.setOnClickListener {
-            findNavController().navigate(R.id.action_GameFragment_to_winFragment)
-        }
+        findNavController().navigate(R.id.action_GameFragment_to_winFragment)
     }
 
     /*
     navigates the player to the lose screen
      */
     fun lose() {
-        binding.guessButton.setOnClickListener {
-            findNavController().navigate(R.id.action_GameFragment_to_loseFragment)
-        }
+        findNavController().navigate(R.id.action_GameFragment_to_loseFragment)
     }
 
     /*
