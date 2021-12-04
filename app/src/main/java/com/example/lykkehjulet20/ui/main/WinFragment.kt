@@ -39,6 +39,8 @@ class WinFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             viewModel  = sharedViewModel
             winFragment = this@WinFragment
+
+            replayButton.setOnClickListener{replayGame()}
         }
     }
 
