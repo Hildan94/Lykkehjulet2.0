@@ -13,6 +13,7 @@
     <string name="lose_game">Du har desværre tabt spillet !</string>
 
     <string name="guess">Indtast din bogstav</string>
+    <string name="wrong_gues">Det er desværre forkert. Prøv igen</string>
 
     <string name="highcores1">s164539 600 points</string>
     <string name="highcores2">s164539 400 points</string>
