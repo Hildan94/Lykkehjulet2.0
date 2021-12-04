@@ -26,19 +26,26 @@ class MainViewModel : ViewModel() {
     private val _category = MutableLiveData<String>("")
     val category: LiveData<String?> = _category
 
+    // Highscore data
     val myDataset = highscores().loadHighscores()
     var savedWord = ""
 
 
+    //attributes to be used for getting a category and making
+    //the chosen word hidden
     private lateinit var categoryList: List<String>
     private lateinit var categoryChosenList: String
     private lateinit var currentWord: String
 
+    //When this interface is intialized it should get a word
     init {
         Log.d("GameFragment", "MainViewModel created!")
         setWord()
     }
 
+    /*
+    Get a category from the words list
+     */
     private fun getCategory() {
     val category = categories.random()
         _category.value = category
@@ -52,11 +59,19 @@ class MainViewModel : ViewModel() {
         categoryChosenList = category
     }
 
+    /*
+    Get's a word from the chosen category and
+    makes the attribute currentWord hide
+    it's characters via '-'
+     */
     private fun setWord() {
         getCategory()
         currentWord = categoryList.random()
 
+        //builds a string
         val builder = StringBuilder()
+
+        //every letter is replaced by '-'
         for(i in currentWord.indices){
             builder.append("-")
         }
@@ -64,7 +79,9 @@ class MainViewModel : ViewModel() {
         savedWord = builder.toString()
     }
 
-
+    /*
+    Function used for when the player makes a guess
+     */
     fun guessLetter(singleLetter: Char ): Boolean{
         for (i in savedWord.indices) {
             if (savedWord[i].lowercase() == singleLetter.lowercase()){
@@ -76,6 +93,9 @@ class MainViewModel : ViewModel() {
         return false
     }
 
+    /*
+    Function to check if the word has been guessed
+     */
     fun isWordGuessed(): Boolean {
         for (i in savedWord.indices) {
             if (savedWord[i].lowercase() == "-") {
@@ -85,13 +105,24 @@ class MainViewModel : ViewModel() {
         return true
     }
 
+    /*
+    decrements the life attribute
+     */
     fun decreaseLife() {
         _lives.value= (_lives.value)?.minus(1)
     }
 
+    /*
+    should reinitialise all attributes
+
+     */
     fun restartGame() {
         _score.value = 0
+        _lives.value = 5
+        _word.value = ""
+        _category.value =""
 
+        savedWord = ""
     }
 
 
