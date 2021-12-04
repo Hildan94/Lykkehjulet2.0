@@ -89,8 +89,8 @@ class MainViewModel : ViewModel() {
             if (currentWord[i].lowercase() == singleLetter.lowercase()){
                 savedWord = savedWord.replaceRange(i, i + 1, singleLetter.toString())
                 _word.value = savedWord
+                letterPresent = true
             }
-            letterPresent = true
         }
         if (letterPresent)
         {
@@ -105,13 +105,10 @@ class MainViewModel : ViewModel() {
      */
     fun isWordGuessed(): Boolean {
         for (i in savedWord.indices) {
-            println("check if won")
             if (savedWord[i].lowercase() == "-") {
-                println("the check failed")
                 return false
             }
         }
-        println("got here and should win")
         return true
     }
 
