@@ -42,32 +42,48 @@ class GameFragment : Fragment() {
         }
     }
 
-
+    /*
+    This function is used every time the player makes a guess
+     */
     private fun guess() {
+        //Get's the guessed letter and saves it in playerWord
         val playerWord = binding.textInputEditText.text.toString()[0]
+
+        //uses the function guessletter from the sharedViewModel
         sharedViewModel.guessLetter(playerWord)
+
+        //If the word is guessed the player should win
         if(sharedViewModel.isWordGuessed()) {
             win()
         }
         else
-            sharedViewModel.decreaseLife()
-        if(sharedViewModel.lives.value == 0) {
-        lose()
-        }
+            //check if the player has any lives left
+            if(sharedViewModel.lives.value!! <= 0) {
+                lose()
+            }
     }
 
+    /*
+    navigates the player to the win screen
+     */
     fun win() {
         binding.guessButton.setOnClickListener {
             findNavController().navigate(R.id.action_GameFragment_to_winFragment)
         }
     }
 
+    /*
+    navigates the player to the lose screen
+     */
     fun lose() {
         binding.guessButton.setOnClickListener {
             findNavController().navigate(R.id.action_GameFragment_to_loseFragment)
         }
     }
 
+    /*
+    Navigates back to the start screen
+     */
     fun replayGame() {
         sharedViewModel.restartGame()
         findNavController().navigate(R.id.action_GameFragment_to_startFragment)
