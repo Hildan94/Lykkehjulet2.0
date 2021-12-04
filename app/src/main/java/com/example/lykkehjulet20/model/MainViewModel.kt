@@ -131,6 +131,8 @@ class MainViewModel : ViewModel() {
         _lives.value = 5
         _word.value = ""
         _category.value =""
+        savedWord=""
+        setWord()
 
         TODO("check is there are more attributes that should be reset")
     }
